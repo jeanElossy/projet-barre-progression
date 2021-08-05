@@ -1,0 +1,103 @@
+:root{
+  --color--selection: rgb(10, 230, 175);
+  --color--text: white;
+  --color--body: #0e1a33;
+  --color--no-select: #24495e;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*, *::before, *::after{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  background: var(--color--body);
+  color: var(--color--text);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.conatiner{
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+}
+.container__progress__bar{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: relative;
+  gap: 30px;
+  margin: 30px 0;
+}
+.container__progress__bar .number__pregression{
+  width: 50px;
+  height: 50px;
+  background: var(--color--no-select);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  transition: border .4s ease-in-out;
+  user-select: none;
+  font-size: 1.3rem;
+}
+
+.active{
+  background: var(--color--selection);
+}
+
+.number__pregression.active{
+  background: var(--color--selection); 
+}
+.container__progress__bar::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  background: var(--color--no-select);
+  z-index: -1;
+}
+.line__pregression{
+  position: absolute;
+  width: 33%;
+  height: 6px;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  background: var(--color--no-select);
+  z-index: 1;
+  transition: width 0.4s ease-in;
+}
+
+/*---------------------------Partie deux-------------------------*/
+
+.container__title{
+  gap: 30px;
+  font-size: 1.3rem;
+  width: 100%;
+  height: 45px;
+  background: var(--color--no-select);
+  border-radius: 50px;
+}
+.information:nth-child(1){
+  background: var(--color--selection);
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding-left: 0;
+}
+.information{
+  height: 45px;
+  width: 110px;
+  position: relative;
+  cursor: pointer;
+}
+.information, .container__title, .number__pregression, .conatiner, body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
